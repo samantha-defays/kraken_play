@@ -1,0 +1,39 @@
+<main class="admin-page">
+
+    <a href="./admin-product-manager" class="btn btn-danger btn-lg" tabindex="-1" role="button">Ajouter un nouveau produit</a>
+
+    <h2>Listing de tous les produits</h2>
+
+    <div class="container-fluid">
+
+        <!-- List of all products -->
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Couleur</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($products as $product) : ?>
+                    <tr>
+                        <td><?= htmlspecialchars($product['name']) ?></td>
+                        <td><?= htmlspecialchars($product['description']) ?></td>
+                        <td><?= htmlspecialchars($product['color']) ?></td>
+                        <td><?= htmlspecialchars($product['price']) ?></td>
+                        <td id="product-image"><img src="./Views<?= htmlspecialchars($product['photo']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"></td>
+                        <td>
+                            <a href="./admin-product-edit?id=<?= $product['id'] ?>"><i class="fas fa-pencil-alt"></i> </a>
+                            <a href="./delete-product?id=<?= $product['id'] ?>" onclick="return confirm('Cette action est irréversible. Confirmer la suppression ?');"> <i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+    </div><!-- end of main container -->
+</main>

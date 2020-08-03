@@ -1,0 +1,19 @@
+<main>
+    <section class="detail">
+        <img src="./Views<?= htmlspecialchars($product['photo']) ?>" alt=" <?= htmlspecialchars($product['name']) ?>">
+
+        <article>
+            <h2><?= htmlspecialchars($product['name']) ?></h2>
+            <p><?= htmlspecialchars($product['description']) ?></p>
+            <span><?= htmlspecialchars($product['price']) ?> €</span>
+
+
+            <form id="add-product" method="POST" action="./product-detail">
+                <label for="quantity">Quantité:</label>
+                <input type="number" id="quantity" name="quantity" min="0" max="50" value="1">
+                <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                <button type="submit"><i class="fas fa-cart-plus"></i></button>
+            </form>
+        </article>
+    </section>
+</main>

@@ -1,0 +1,43 @@
+<main class="admin-page">
+    <h2>Gestionnaire d'événement</h2>
+    <div class="container-fluid">
+
+        <div class="card">
+            <div class="card-header bg-dark text-light">Ajouter un événement</div>
+            <div class="card-body">
+
+                <form method="POST" action="./admin-event-manager">
+                    <div class="form-group">
+                        <label for="titleEvent">Titre de la session</label>
+                        <input type="text" class="form-control" id="titleEvent" name="titleEvent" placeholder="ex: Loup Garou">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDifficulty">Difficulté</label>
+                        <input class="form-control" id="eventDifficulty" name="eventDifficulty" placeholder="Facile">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventLevel">Niveau Recommandé</label>
+                        <input type="number" class="form-control" id="eventLevel" name="eventLevel" placeholder="1" min="1" max="20">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDate">Date de l'événement</label>
+                        <input type="date" class="form-control" id="eventDate" name="eventDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventStart">Heure de début</label>
+                        <input type="time" class="form-control" id="eventStart" name="eventStart">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventEnd">Heure de fin</label>
+                        <input type="time" class="form-control" id="eventEnd" name="eventEnd">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                </form>
+
+            </div><!-- end of card body -->
+        </div><!-- end of card container -->
+
+    </div><!-- end of main container -->
+</main>

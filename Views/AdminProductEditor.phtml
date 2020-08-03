@@ -1,0 +1,60 @@
+<main class="admin-page">
+    <h2>Gestionnaire de produit</h2>
+    <div class="container-fluid">
+
+        <div class="card">
+            <div class="card-header bg-dark text-light">Modifier un produit</div>
+            <div class="card-body">
+
+                <?php if ($errors !== []) : ?>
+                    <article class="form-error">
+                        <h3>Erreur</h3>
+
+                        <ul>
+                            <?php foreach ($errors as $error) : ?>
+                                <li><?= $error ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </article>
+                <?php endif; ?>
+
+                <form method="POST" action="./admin-product-edit" enctype="multipart/form-data">
+                    <div class=" form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" class="form-control" id="name" name="name" value="<?= htmlspecialchars($product['name']) ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3"><?= htmlspecialchars($product['description']) ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="main-color">Couleur</label>
+                        <input type="text" class="form-control" id="main-color" name="color" list="existing-colors" value="<?= htmlspecialchars($product['color']) ?>">
+
+                        <datalist id="existing-colors">
+                            <option value="Rouge">
+                            <option value="Rose">
+                            <option value="Bleu">
+                            <option value="Vert">
+                            <option value="Jaune">
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Prix</label>
+                        <input type="number" step="0.01" class="form-control" id="price" name="price" min="0" aria-describedby="price-help" value="<?= htmlspecialchars($product['price']) ?>">
+                        <small id="price-help" class="form-text text-muted"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Ajouter une photo</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                        <input type="file" class="form-control-file" id="photo" name="photo">
+                    </div>
+                    <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                </form>
+
+            </div><!-- end of card body -->
+        </div><!-- end of card container -->
+
+    </div><!-- end of main container -->
+</main>

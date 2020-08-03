@@ -1,0 +1,37 @@
+<main>
+
+    <?php if (isset($loginError)) : ?>
+        <article class="form-error">
+            <h2>Erreur</h2>
+            <p><?= "Avez-vous peut-être fait une erreur dans les données inscrites ?" ?></p>
+        </article>
+    <?php elseif (isset($errors)) : ?>
+        <article class="form-error">
+            <h2>Erreur</h2>
+            <?php foreach ($errors as $error) : ?>
+                <ul>
+                    <li><?= $error ?></li>
+                </ul>
+            <?php endforeach; ?>
+        </article>
+    <?php endif; ?>
+
+    <form method="POST" action="./login" id="login-form">
+        <fieldset>
+
+            <legend>Se connecter</legend>
+
+            <label for="e-mail">Adresse e-mail</label>
+            <input type="email" id="e-mail" name="email" placeholder="dnd@mail.fr">
+
+            <label for="pass">Mot de passe</label>
+            <input type="password" id="pass" name="password" placeholder="********">
+
+        </fieldset>
+
+        <button type="input">Connexion</button>
+    </form>
+
+    <a href="./register">Pas encore inscrit ? Inscrivez-vous ici.</a>
+    <script src="./Views/js/login.js"></script>
+</main>

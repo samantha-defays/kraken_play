@@ -1,0 +1,42 @@
+<main class="admin-page">
+    <h2>Listing de tous les utilisateurs</h2>
+    <div class="container-fluid">
+
+        <!-- List of all products -->
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Date de naissance</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Ville</th>
+                    <th scope="col">Code Postal</th>
+                    <th scope="col">Pays</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Rôle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user) : ?>
+                    <tr>
+                        <td><?= htmlspecialchars($user['firstName']) ?></td>
+                        <td><?= htmlspecialchars($user['lastName']) ?></td>
+                        <td><?= htmlspecialchars($user['birthDate']) ?></td>
+                        <td><?= htmlspecialchars($user['address']) ?></td>
+                        <td><?= htmlspecialchars($user["city"]) ?></td>
+                        <td><?= htmlspecialchars($user["postCode"]) ?></td>
+                        <td><?= htmlspecialchars($user["country"]) ?></td>
+                        <td><?= htmlspecialchars($user["email"]) ?></td>
+                        <?php if ($user['rank'] == "Customer") : ?>
+                            <td>Client</td>
+                        <?php else : ?>
+                            <td><?= htmlspecialchars($user["rank"]) ?></td>
+                        <?php endif; ?>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+    </div><!-- end of main container -->
+</main>

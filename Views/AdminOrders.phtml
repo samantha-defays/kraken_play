@@ -1,0 +1,36 @@
+<main class="admin-page">
+    <h2>Listing détaillé des commandes</h2>
+    <div class="container-fluid">
+
+        <!-- List of all products -->
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Dé</th>
+                    <th scope="col">Prix unitaire</th>
+                    <th scope="col">Quantité</th>
+                    <th scope="col">Total par dé</th>
+                    <th scope="col">Total commande TTC</th>
+                    <th scope="col">Acheteur</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($orders as $order) : ?>
+                    <tr>
+                        <td><?= htmlspecialchars($order['id']) ?></td>
+                        <td><?= htmlspecialchars($order['date']) ?></td>
+                        <td><?= htmlspecialchars($order['name']) ?></td>
+                        <td><?= htmlspecialchars($order['price']) ?> €</td>
+                        <td><?= htmlspecialchars($order["productQuantity"]) ?></td>
+                        <td><?= htmlspecialchars($order["totalProduct"]) ?> €</td>
+                        <td><?= htmlspecialchars($order["totalPrice"]) ?> €</td>
+                        <td><?= htmlspecialchars($order["firstName"]) ?> <?= htmlspecialchars($order["lastName"]) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+    </div><!-- end of main container -->
+</main>

@@ -1,0 +1,58 @@
+<main>
+
+    <section class="cart">
+        <h2>Panier</h2>
+
+        <?php if (empty($_SESSION['shoppingCart'])) : ?>
+            <p>Votre panier est vide. Découvrez notre sélection de dés <a href="./shop">ici</a>.</p>
+        <?php else : ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Produit</th>
+                        <th>Prix unitaire</th>
+                        <th>Quantité</th>
+                        <th>Prix total</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php foreach ($_SESSION['shoppingCart'] as $cart) : ?>
+                        <tr>
+                            <td id="photo-recap"><img src="./Views<?= $cart['product']['photo'] ?>" alt="<?= $cart['product']['name'] ?>"></td>
+                            <td>
+                                <?php if (strpos($cart['product']['name'], '#') === 0) : ?>
+                                    Dé customisé
+                                <?php else : ?>
+                                    <?= htmlspecialchars($cart['product']['name']) ?>
+                                <?php endif; ?>
+                            </td>
+                            <td><?= number_format($cart['product']['price'], 2, ',', ' ') ?> €</td>
+                            <td><?= $cart['quantity'] ?></td>
+                            <td><?= number_format($cart['quantity'] * $cart['product']['price'], 2, ',', ' ') ?> €</td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Montant HT:</td>
+                        <td colspan="1"><?= number_format($prices['totalWithoutTaxes'], 2, ',', ' ') ?> €</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Montant de la TVA (<?= number_format($prices['VAT'], 2, ',', ' ') ?> %):</td>
+                        <td colspan="1"><?= number_format($prices['totalVAT'], 2, ',', ' ') ?> €</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Montant TTC :</td>
+                        <td colspan="1"><?= number_format($prices['totalWithTaxes'], 2, ',', ' ') ?> €</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <a href="./validation" class="button">Valider ma commande</a>
+            <a href="./empty-cart" class="button">Vider mon panier</a>
+        <?php endif; ?>
+
+    </section>
+</main>

@@ -1,0 +1,42 @@
+<main>
+    <section class="events">
+        <h2>Evenements</h2>
+
+        <article>
+            <img src="./Views/img/critical_role_1.jpg" alt="session de jeu">
+            <p>Venez nous rejoindre dans les locaux de notre partenaire pour une partie <abbr title="In Real Life = dans la vraie vie">IRL</abbr> de Donjons et Dragons. Pour participer, c'est simple, il suffit de vous inscrire ci-dessous. Chaque session accueillera 10 passionnés de jeu, et l'un de nos maîtres du donjon.</p>
+            <p>Toutes nos sessions durent entre 2 et 4 heures. Le thème de chaque partie sera indiqué à l'avance ainsi que le niveau recommandé pour les personnages. L'histoire est prévue pour tenir sur une seule session.</p>
+
+            <p>N'attendez plus et inscrivez-vous dans l'une des prochaines sessions:</p>
+        </article>
+
+        <div class="container flex">
+            <?php foreach ($events as $event) : ?>
+                <article>
+                    <h3><?= htmlspecialchars($event['title']) ?></h3>
+                    <small><?= htmlspecialchars($event['difficulty']) ?> / Level <?= htmlspecialchars($event['level']) ?></small>
+                    <p><?= $weekdays[$event['startWeekday']] ?>
+                        <?= $event['startDay'] ?> <?= $months[$event['startMonth']] ?>,
+                        <?= $event['startHour'] ?>h<?= $event['startMinute'] ?> -
+                        <?= $event['endHour'] ?>h<?= $event['endMinute'] ?></p>
+                    <img src="<?= $displayPictures[$i] ?>" alt="jeu de plateau">
+                    <?php if ($event['participants'] < 10) : ?>
+                        <p>Places restantes: <?= 10 - $event['participants'] ?> / 10</p>
+                        <a href="./event-participate?id=<?= $event['id'] ?>" class="button">S'inscrire</a>
+                    <?php else : ?>
+                        <p>COMPLET</p>
+                    <?php endif; ?>
+                </article>
+                <?php $i++ ?>
+            <?php endforeach; ?>
+        </div>
+        <?php if (!$events) : ?>
+            <img src="./Views/img/no_event.png" alt="no events" id="noevent">
+        <?php endif; ?>
+
+    </section>
+    <secion class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11615.646974684714!2d5.3819148!3d43.2951699!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x638bc97434ba0bd0!2sLa%20Crypte%20du%20Jeu!5e0!3m2!1sfr!2sfr!4v1587130204754!5m2!1sfr!2sfr" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </section>
+
+</main>

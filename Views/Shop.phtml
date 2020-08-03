@@ -1,0 +1,50 @@
+<main class="flex shopping-list">
+    <!-- Sorting dice by color or price -->
+    <nav class="flex">
+        <span><i class="fas fa-dice-d20"></i></span>
+        <article class="flex">
+            <h3>Tri par couleur</h3>
+            <ul id="color-list">
+                <?php foreach ($colors as $color) : ?>
+                    <li class="color" data-color="<?= htmlspecialchars($color['color']) ?>"><?= htmlspecialchars($color['color']) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </article>
+        <article class="flex">
+            <a href="./custom" class="button" id="custom-button"><i class="fas fa-caret-right"></i> Personnalisation <i class="fas fa-caret-left"></i></a>
+        </article>
+    </nav>
+
+    <section class="flex shop" id="dice-board">
+
+        <!-- Displaying the four newest dice -->
+        <h2>Nouveautés</h2>
+        <?php foreach ($newest as $new) : ?>
+            <article class="product">
+                <a href="./product-detail?id=<?= $new['id'] ?>">
+                    <img src="./Views<?= htmlspecialchars($new['photo']) ?>" alt="<?= htmlspecialchars($new['name']) ?>">
+                </a>
+                <h3><?= htmlspecialchars($new['name']) ?></h3>
+            </article>
+        <?php endforeach; ?>
+
+        <!-- Displaying all dice -->
+        <h2>Tous nos dés</h2>
+        <?php foreach ($products as $product) : ?>
+            <article class="product">
+                <a href="./product-detail?id=<?= $product['id'] ?>">
+                    <img src="./Views<?= htmlspecialchars($product['photo']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+                </a>
+                <h3><?= htmlspecialchars($product['name']) ?></h3>
+                <span><?= htmlspecialchars($product['price']) ?></span>
+            </article>
+        <?php endforeach; ?>
+    </section>
+
+    <section class="flex shop hidden" id="color-dice">
+
+        <!-- Displaying dice collection by color in JS with AJAX -->
+
+    </section>
+    <script src="./Views/js/ajax.js"></script>
+</main>

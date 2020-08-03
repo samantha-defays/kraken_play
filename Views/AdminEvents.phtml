@@ -1,0 +1,43 @@
+<main class="admin-page">
+    <a href="./admin-event-manager" class="btn btn-danger btn-lg" tabindex="-1" role="button">Ajouter un nouvel événement</a>
+
+    <h2>Liste des événements</h2>
+    <div class="container-fluid">
+
+        <!-- List of all products -->
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Difficulté</th>
+                    <th scope="col">Niveau</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Fin</th>
+                    <th scope="col">Nombre de participants</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($events as $event) : ?>
+                    <tr>
+                        <td><?= htmlspecialchars($event['title']) ?></td>
+                        <td><?= htmlspecialchars($event['difficulty']) ?></td>
+                        <td><?= htmlspecialchars($event['level']) ?></td>
+                        <td><?= htmlspecialchars($event['startAt']) ?></td>
+                        <td><?= htmlspecialchars($event['endAt']) ?></td>
+                        <td><?= htmlspecialchars($event['participants']) ?></td>
+                        <td>
+                            <a href="./admin-event-edit?id=<?= $event['id'] ?>">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <a href="./delete-event?id=<?= $event['id'] ?>" onclick="return confirm('Cette action est irréversible. Confirmer la suppression ?');">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+    </div><!-- end of main container -->
+</main>

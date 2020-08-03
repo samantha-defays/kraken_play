@@ -1,0 +1,623 @@
+/* -------------------------- GLOBAL -------------------------- */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #3B3B3B;
+    font-size: 62.5%;
+    /*1rem = 10px*/
+    font-family: 'Forum', serif;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.3;
+    color: #dfe6e9;
+}
+
+header section>*,
+main>article,
+main>section:not(.map) {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1100px;
+}
+
+h1,
+h2,
+h3,
+h4,
+header nav,
+.button,
+legend,
+form button {
+    text-transform: uppercase;
+}
+
+h1,
+h3,
+h4,
+form,
+.admin-page,
+.admin-page h2 {
+    font-family: 'Raleway', sans-serif;
+}
+
+a,
+li,
+.custom div {
+    text-decoration: none;
+    transition: ease-in-out .5s;
+}
+
+a {
+    color: #636d55;
+}
+
+header a,
+footer a {
+    color: #dfe6e9;
+}
+
+p {
+    margin-bottom: 2%;
+}
+
+img {
+    max-width: 100%;
+}
+
+img:not(header img) {
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, .3);
+}
+
+.button,
+button {
+    margin: 1% 0;
+    padding: 1% 3%;
+    border-radius: 10px;
+    color: white;
+    background-color: #636d55;
+
+}
+
+button {
+    border-radius: 0%;
+}
+
+.button:hover,
+button:hover {
+    background-color: #4f5a48;
+}
+
+ul {
+    list-style: none;
+}
+
+li:hover {
+    color: #4f5a48;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* -------------------------- HEADER -------------------------- */
+header {
+    margin-bottom: 4%;
+}
+
+header nav {
+    background-color: #0d1009;
+    padding: 1% 0;
+    font-size: 1rem;
+}
+
+header span {
+    display: none;
+}
+
+header a {
+    margin: 2%;
+}
+
+header a:hover {
+    color: #079992;
+}
+
+header section {
+    color: black;
+    background: url('../img/artwork_jungle.jpg') center;
+    background-size: cover;
+    padding: 4% 0;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, .3);
+}
+
+header section img {
+    width: 5%;
+}
+
+h1 {
+    text-shadow: #FFF 1px 0 10px;
+    font-size: 2rem;
+    margin: 2% auto;
+}
+
+header article {
+    right: 2%;
+    position: absolute;
+}
+
+/* -------------------------- MAIN -------------------------- */
+h2 {
+    font-family: 'Forum', cursive;
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+.home {
+    margin-bottom: 2%;
+}
+
+.home img,
+.contact img {
+    width: 20%;
+    border-radius: 50%;
+    margin: 1% 2%;
+}
+
+section.flex {
+    flex-wrap: wrap;
+}
+
+.flex h2 {
+    width: 100%;
+}
+
+.flex article {
+    width: 23%;
+    margin: 1%;
+}
+
+/* -------------------------- CUSTOM -------------------------- */
+.custom svg {
+    width: 25%;
+    overflow: visible;
+}
+
+.custom article {
+    flex-wrap: wrap;
+    margin-bottom: 4%;
+}
+
+.custom article h3 {
+    width: 100%;
+}
+
+.custom div {
+    width: 20px;
+    height: 20px;
+    margin: 0 1%;
+    border-radius: 50%;
+}
+
+.custom div:hover {
+    width: 30px;
+    height: 30px;
+}
+
+.custom div:hover {
+    cursor: pointer;
+}
+
+/* -------------------------- SHOP -------------------------- */
+nav article a {
+    color: white;
+}
+
+nav article a:hover {
+    color: #e55039;
+}
+
+main nav,
+nav article {
+    flex-direction: column;
+}
+
+main nav article.flex {
+    width: 100%;
+}
+
+main nav.flex {
+    width: 20%;
+    margin: 0 1% 0 4%;
+    justify-content: flex-start;
+}
+
+.shop {
+    width: 80%;
+    margin: 0 8% 0 1%;
+}
+
+.product img {
+    width: 90%;
+    border-radius: 10px;
+    scale: 0.9;
+    transition: 0.6s cubic-bezier(.6, .15, .51, .8);
+}
+
+.product img:hover {
+    scale: 1;
+}
+
+.product h3 {
+    margin-bottom: 0;
+}
+
+#color-list {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#color-list li:hover {
+    cursor: pointer;
+}
+
+.detail img {
+    border-radius: 10px;
+    width: 35%;
+    display: inline-block;
+}
+
+.detail article {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    width: 45%;
+    margin: 3%;
+}
+
+.detail form {
+    width: 40%;
+}
+
+.detail form button {
+    font-size: 1.1rem;
+    margin: 8% auto;
+    padding: 5%;
+    width: 100%;
+}
+
+.detail form button:hover:after {
+    content: ' Ajouter';
+    cursor: pointer;
+}
+
+
+/* -------------------------- CART -------------------------- */
+.cart table {
+    border-collapse: collapse;
+    border: 1px solid rgb(56, 56, 56, .3);
+    margin: 5% auto;
+}
+
+.cart thead {
+    text-transform: uppercase;
+}
+
+.cart td,
+.cart th {
+    padding: 1%;
+}
+
+.cart tr:nth-child(odd) {
+    background-color: #2e2d2d;
+}
+
+.cart tr:nth-child(even) {
+    background-color: #383838;
+}
+
+.cart thead tr:nth-last-child(odd),
+.cart tfoot tr {
+    background-color: #1b1f24;
+    padding: 2%;
+}
+
+.cart thead tr:nth-child(odd),
+.cart tfoot tr:nth-last-child(1) {
+    border-bottom: 1px double #dfe6e9;
+}
+
+.cart tfoot tr:first-of-type {
+    border-top: 1px double #dfe6e9;
+    border-bottom: none;
+}
+
+.cart tfoot {
+    text-align: right;
+    font-weight: bold;
+}
+
+.cart tr:hover {
+    background-color: rgb(79, 90, 72, .3);
+}
+
+#photo-recap {
+    width: 8%;
+}
+
+/* -------------------------- EVENTS -------------------------- */
+.events .container {
+    flex-wrap: wrap;
+}
+
+.events img {
+    width: 20%;
+    border-radius: 50%;
+}
+
+.events .flex img {
+    width: 60%;
+    margin: 3% 0;
+}
+
+.map iframe {
+    margin-top: 5%;
+}
+
+.events .flex article {
+    width: 30%;
+}
+
+#noevent {
+    width: 100%;
+    border-radius: 0;
+}
+
+/* -------------------------- FORMS -------------------------- */
+form {
+    width: 50%;
+    margin: 2% auto;
+}
+
+form button {
+    border: none;
+    margin: 2% 0;
+    padding: 1% 3%;
+    color: #dfe6e9;
+    background-color: #636d55;
+    transition: ease-in-out .5s;
+}
+
+fieldset {
+    border: 2px solid #0d1009;
+    padding: 2% 0;
+    margin: 1% 1% 2% 1%;
+}
+
+legend {
+    background-color: #0d1009;
+    padding: 1% 2%;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin: 1% 0 0;
+}
+
+input {
+    display: block;
+    margin: 0 auto;
+    padding: 1%;
+}
+
+input,
+select {
+    background-color: #3B3B3B;
+    border: none;
+    border-bottom: 1px solid #0d1009;
+    color: #dfe6e9;
+}
+
+.form-error {
+    background-color: rgba(214, 48, 49, .1);
+    border: 1px solid #d63031;
+    border-radius: 5px;
+}
+
+.field-error {
+    border: 1px solid #d63031;
+}
+
+#login-form+a {
+    color: #dfe6e9;
+}
+
+#login-form+a:hover {
+    color: #636d55;
+}
+
+
+/* -------------------------- ADMIN -------------------------- */
+body.admin-page {
+    background-color: #dfe6e9;
+    color: #0d1009;
+}
+
+.admin-page nav a {
+    margin: 0 1%;
+}
+
+.admin-page h2 {
+    color: #0d1009;
+    margin: 3% auto 5%;
+}
+
+main.admin-page {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.admin-page img {
+    box-shadow: none;
+}
+
+#product-image {
+    width: 10%;
+}
+
+.dashboard .card {
+    margin-bottom: 5%;
+}
+
+.dashboard p.card-text,
+.dashboard .card-title {
+    font-size: 5rem;
+    font-weight: bold;
+    background: radial-gradient(circle farthest-corner at 10% 20%, rgba(205, 33, 42, 1) 0%, rgba(236, 95, 5, 1) 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.admin-page a:not(.btn) {
+    color: #dc3545;
+}
+
+/* -------------------------- FOOTER -------------------------- */
+footer {
+    font-family: 'Old Standard TT', serif;
+    margin: 2% auto 0;
+    padding: 2% 0;
+    font-size: .9rem;
+}
+
+/* -------------------------- RESPONSIVE -------------------------- */
+@media screen and (max-width: 1440px) {
+    #custom-button {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 780px) {
+
+    /* HEADER */
+    header nav {
+        display: flex;
+        flex-direction: column;
+        max-height: 20rem;
+        transition: ease-in-out .5s;
+    }
+
+    header span {
+        background-color: #000;
+        display: block;
+        font-size: inherit;
+        padding: 2%;
+        padding-left: 90%;
+        cursor: pointer;
+    }
+    
+    header nav a {
+        margin: 1% 0;
+    }
+
+    .toggle-nav {
+        max-height: 0rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .toggle-nav a {
+        font-size: 0rem;
+        margin: none;
+        padding: none;
+    }
+
+    header {
+        margin-bottom: 10%;
+    }
+
+    .home img:first-of-type,
+    .home img:last-of-type {
+        display: none;
+    }
+
+    .home img {
+        width: 30%;
+    }
+
+    /* SHOP */
+    .shopping-list {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .shopping-list nav.flex {
+        width: 90%;
+    }
+
+    .shopping-list nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .shopping-list nav ul li {
+        padding: 0 1%;
+    }
+
+    .shopping-list section article {
+        width: 45%;
+    }
+
+    /* CUSTOM */
+    .custom svg {
+        width: 40%;
+    }
+
+    .custom div {
+        width: 30px;
+        height: 30px;
+        margin: 1% 2%;
+    }
+
+    .custom div:hover {
+        width: 40px;
+        height: 40px;
+    }
+
+    .events article:first-of-type img {
+        width: 50%;
+    }
+
+    .events .flex article {
+        width: 70%;
+        margin-top: 10%;
+    }
+
+    /* FORMS */
+    #register,
+    #login-form {
+        width: 80%;
+    }
+}

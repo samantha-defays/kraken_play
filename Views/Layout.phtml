@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kraken Play</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./Views/favicon.ico">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Forum&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <!-- CSS Sheets -->
+    <link rel="stylesheet" href="./Views/css/normalize.css">
+    <link rel="stylesheet" href="./Views/css/style.css">
+    <!-- JQuery, Font Awesome & own JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/ca393c0718.js" crossorigin="anonymous"></script>
+    <script src="./Views/js/menu.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <span><i class="fas fa-bars"></i></span>
+        <nav class="toggle-nav">
+            <a href="./">Accueil</a>
+            <a href="./shop">Boutique</a>
+            <a href="./custom">Atelier</a>
+            <a href="./events">Evénements</a>
+            <a href="./contact">Contact</a>
+            <?php if (!isset($_SESSION['user'])) : ?>
+                <a href="./register">S'inscrire</a>
+                <a href="./login">Connexion</a>
+            <?php else : ?>
+                <?php if ($_SESSION['user']['rank'] == 'Admin') : ?>
+                    <a href="./admin">Admin</a>
+                <?php endif; ?>
+                <a href="./logout">Déconnexion</a>
+            <?php endif; ?>
+            <a href="./cart">
+                <i class="fas fa-shopping-cart"></i>
+                <?php if(isset($_SESSION['totalInCart'])): ?>
+                    (<?= $_SESSION['totalInCart'] ?>)
+                <?php endif; ?>
+            </a>
+        </nav>
+        <section>
+            <img src="./Views/img/logo_kraken.png" alt="logo kraken play">
+            <h1>Kraken Play</h1>
+        </section>
+        <?php if (isset($_SESSION['user'])) : ?>
+            <article>
+                <h3>Bienvenue, <?= htmlspecialchars($_SESSION['user']['firstName']) ?> <?= htmlspecialchars($_SESSION['user']['lastName']) ?></h3>
+            </article>
+        <?php endif; ?>
+    </header>
+
+    <?= $pageContent ?>
+
+    <footer>
+        <small>Kraken Play 2020</small>
+    </footer>
+</body>
+
+</html>

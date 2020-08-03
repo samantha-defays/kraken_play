@@ -1,0 +1,59 @@
+<main class="admin-page">
+    <h2>Gestionnaire de produit</h2>
+    <div class="container-fluid">
+
+        <div class="card">
+            <div class="card-header bg-dark text-light">Ajouter un produit</div>
+            <div class="card-body">
+
+                <?php if ($errors !== []) : ?>
+                    <article class="form-error">
+                        <h3>Erreur</h3>
+
+                        <ul>
+                            <?php foreach ($errors as $error) : ?>
+                                <li><?= $error ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </article>
+                <?php endif; ?>
+
+                <form enctype="multipart/form-data" method="POST" action="./admin-product-manager">
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="main-color">Couleur</label>
+                        <input type="text" class="form-control" id="main-color" name="color" list="existing-colors">
+
+                        <datalist id="existing-colors">
+                            <option value="Rouge">
+                            <option value="Rose">
+                            <option value="Bleu">
+                            <option value="Vert">
+                            <option value="Jaune">
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Prix</label>
+                        <input type="number" step="0.01" class="form-control" id="price" name="price" min="0" aria-describedby="price-help">
+                        <small id="price-help" class="form-text text-muted">Ex. 15.50 pour 15,50€</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Ajouter une photo</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
+                        <input type="file" class="form-control-file" id="photo" name="photo">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                </form>
+
+            </div><!-- end of card body -->
+        </div><!-- end of card container -->
+
+    </div><!-- end of main container -->
+</main>

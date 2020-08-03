@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !(\.jpg|\.jpeg|\.css|\.js|\.svg|\.png|\.ico)$ [NC]
+RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]

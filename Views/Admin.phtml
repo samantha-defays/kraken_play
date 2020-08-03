@@ -1,0 +1,61 @@
+<main class="admin-page dashboard">
+    <h2>Bienvenue dans l'espace d'administration</h2>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-12 col-md-12 col-lg">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        Dés différents
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title"><i class="fas fa-dice-d20"></i></h2>
+                        <p class="card-text text-success"><?= $totalNumber['total'] ?></p>
+                        <a href="./admin-products" class="btn btn-dark">Liste des dés</a>
+                    </div>
+                </div><!-- end of card -->
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        Commandes
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title"><i class="fas fa-box-open"></i></h2>
+                        <p class="card-text text-success"><?= $totalOrders['total'] ?></p>
+                        <a href="./admin-orders" class="btn btn-dark">Liste des commandes</a>
+                    </div>
+                </div><!-- end of card -->
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        Membres
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title"><i class="fas fa-users"></i></h2>
+                        <p class="card-text text-success"><?= $totalUsers['total'] ?></p>
+                        <a href="./admin-users" class="btn btn-dark">Liste des membres</a>
+                    </div>
+                </div><!-- end of card -->
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        Evénements
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title"><i class="fas fa-calendar-week"></i></h2>
+                        <p class="card-text text-success"><?= $totalEvents['total'] ?></p>
+                        <a href="./admin-events" class="btn btn-dark">Liste des événements</a>
+                    </div>
+                </div><!-- end of card -->
+            </div>
+
+        </div>
+
+    </div><!-- container end -->
+
+
+    <main>
